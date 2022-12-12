@@ -3,12 +3,16 @@
   margin: 0;
   box-sizing: border-box;
 }
+html, body {
+  height: 100%;
+}
 
 nav {
-  background-color: black;
+  background-color: #202124;
   padding: 2% 10%;
   display: flex;
   gap: 30px;
+  border-bottom: 1px solid #3c4043;
 }
 
 input[type="text"] {
@@ -43,15 +47,52 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+.container {
+  background-color: #202124;
+}
+
 .info {
   display: flex;
-  flex-direction: column;
-  margin: 40px auto;
-  width: 400px;
-  border: 1px solid black;
-  border-radius: 5px;
   justify-content: center;
-  align-items: center;
-  padding: 10px 10px;
+  align-items: flex-start;
+  padding: 4% 10px;
+  gap: 30px;
+  color: white;
+  height: 100%;
+}
+
+.temp_container {
+  display: flex;
+}
+
+.temp_container > p {
+  font-size: 80px;
+  display: flex;
+}
+
+.temp_container > p > span {
+  font-size: 16px;
+}
+
+
+.more_infos_container {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  gap: 2px;
+}
+
+.local_container {
+  display: flex;
   gap: 10px;
+  align-items: flex-start;
+}
+
+.condition_container {
+  padding: 12px 0 ;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: flex-end;
 }

@@ -61,11 +61,13 @@ function mainContent() {
 
 async function showInfos() {
   const container = document.getElementsByClassName("container")[0];
+  const temp_container = document.createElement('div');
+  const more_infos_container = document.createElement('div');
+  const local_container = document.createElement('div');
+  const condition_container = document.createElement('div');
   const flag = document.createElement("img");
   const flag_img_src = await getFlag();
-  const p = document.createElement('p');
-  const input = document.getElementById('search').value;
-  const weather_container = document.createElement('div');
+  const local_text = document.createElement('p');
   const response = await getData();
   const main = response.data.main;
   const temp = parseInt(main.temp - 273.15);
@@ -78,25 +80,42 @@ async function showInfos() {
   const temp_min_text = document.createElement('p');
   const feeling_temp_text = document.createElement('p');
   const humidity_text = document.createElement('p');
-  console.log(response.data);
-
+  const condition_text = document.createElement('p');
+  const celsius_text = document.createElement('span');
+  const state = response.data.name;
+  const country = response.data.sys.country;
+  const condition = response.data.weather[0].description;
+  
+  console.log(response.data)
+    
   container.innerHTML = null;
   container.classList.add('info');
   flag.src = flag_img_src;
-  p.textContent = `Tempo agora em ${input}`;
-  temp_text.textContent = `Temperatura: ${temp}°C`;
+  local_text.textContent = `${state} - ${country}`;
+  temp_text.textContent = `${temp}`;
+  celsius_text.textContent = '°C';
   temp_max_text.textContent = `Temperatura máxima: ${temp_max}°C`;
   temp_min_text.textContent = `Temperatura mínima: ${temp_min}°C`;
   feeling_temp_text.textContent = `Sensação térmica: ${feeling_temp}°C`;
   humidity_text.textContent = `Umidade do ar: ${humidity}%`;
+  condition_text.textContent = condition;
+  temp_container.classList.add('temp_container');
+  more_infos_container.classList.add('more_infos_container');
+  local_container.classList.add('local_container');
+  condition_container.classList.add('condition_container');
 
-  weather_container.appendChild(temp_text);
-  weather_container.appendChild(temp_max_text);
-  weather_container.appendChild(temp_min_text);
-  weather_container.appendChild(feeling_temp_text);
-  weather_container.appendChild(humidity_text);
 
-  container.appendChild(flag);
-  container.appendChild(p);
-  container.appendChild(weather_container);
+  temp_text.appendChild(celsius_text);
+  temp_container.appendChild(temp_text);
+  more_infos_container.appendChild(temp_max_text);
+  more_infos_container.appendChild(temp_min_text);
+  more_infos_container.appendChild(feeling_temp_text);
+  more_infos_container.appendChild(humidity_text);
+  condition_container.appendChild(local_text);
+  condition_container.appendChild(condition_text);
+  local_container.appendChild(flag);
+  local_container.appendChild(condition_container);
+  container.appendChild(temp_container);
+  container.appendChild(more_infos_container);
+  container.appendChild(local_container);
 }
