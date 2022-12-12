@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     index: './src/index.js',
-    openweather: './src/openweather.js'
+    openweather: './src/getdata.js'
   },
   plugins: [
     new HtmlWebpackPlugin({

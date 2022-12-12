@@ -1,4 +1,3 @@
-import getInfo from './openweather';
 import DOM from './DOM';
 import { materialIcons } from './DOM';
 
