@@ -96,3 +96,53 @@ input[type="submit"] {
   align-items: flex-end;
   align-self: flex-end;
 }
+
+@media (max-width: 500px) {
+  nav {
+    display: flex;
+    padding: 2% 2%;
+    gap: 10px;
+    align-items: center;
+  }
+  .logo {
+    font-size: 12px;
+  }
+
+  input[type="text"] {
+    border-radius: 10px;
+    width: 200px;
+    padding: 2px 10px;
+    font-size: 10px;
+  }
+  
+  input[type="submit"] {
+    margin-left: 20px;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+
+  .material-symbols-outlined {
+    color: black;
+    font-size: 20px
+    ;
+  }
+
+  .temp_container,
+  .more_infos_container {
+    margin-top: 80px;
+  }
+
+  .local_container {
+    position: absolute;
+  }
+
+  .temp_container > p {
+    font-size: 70px;
+    display: flex;
+  }
+  
+  .info {
+    position: relative;
+
+  }
+}

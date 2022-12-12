@@ -2,7 +2,8 @@ import DOM from './DOM';
 import { materialIcons } from './DOM';
 
 function component() {
-  document.head.appendChild(materialIcons());
+  
+  document.head.insertAdjacentElement('afterbegin',materialIcons());
   const elements = DOM();
   for(const element of elements) {
     document.body.appendChild(element);
